@@ -10,7 +10,6 @@ import com.cg.spring.boot.demo.model.Employee;
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
-	
 	public abstract List<Employee> findEmployeeByEname(String ename);
 
 }
