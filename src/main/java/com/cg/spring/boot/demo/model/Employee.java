@@ -1,9 +1,19 @@
 package com.cg.spring.boot.demo.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "spring_emp")
 public class Employee {
 
+	@Id
 	private int eid;
-	private String name;
+	@Column
+	private String ename;
+	@Column
 	private double salary;
 
 	public Employee() {
@@ -13,7 +23,7 @@ public class Employee {
 	public Employee(int eid, String name, double salary) {
 		super();
 		this.eid = eid;
-		this.name = name;
+		this.ename = name;
 		this.salary = salary;
 	}
 
@@ -25,12 +35,12 @@ public class Employee {
 		this.eid = eid;
 	}
 
-	public String getName() {
-		return name;
+	public String getEname() {
+		return ename;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setEname(String name) {
+		this.ename = name;
 	}
 
 	public double getSalary() {
@@ -43,7 +53,7 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		return "Employee [eid=" + eid + ", name=" + name + ", salary=" + salary + "]";
+		return "Employee [eid=" + eid + ", ename=" + ename + ", salary=" + salary + "]";
 	}
 
 }
