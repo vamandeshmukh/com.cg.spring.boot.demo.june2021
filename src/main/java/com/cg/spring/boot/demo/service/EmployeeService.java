@@ -40,6 +40,12 @@ public class EmployeeService {
 		return repository.save(emp);
 	}
 
+	public int deleteEmployee(int eid) {
+		LOG.info("deleteEmployee");
+		repository.deleteById(eid);
+		return eid;
+	}
+
 	/**
 	 * Try the below code only after you are comfortable with basic spring boot
 	 * concepts
@@ -52,38 +58,38 @@ public class EmployeeService {
 //		return employee;
 //	}
 
-	// getting a specific record by using the method findById() of CrudRepository
-	public Employee getEmployeeById(int id) {
-		// logic
-		try {
-			return repository.findById(id).get();
-		} catch (NoSuchElementException nse) {
-			LOG.error("Not a valid employee id");
-
-			return null;
-		} catch (Exception ex) {
-			// LOG.info();
-			return null;
-		}
-	}
-
-	public List<Employee> getEmployeeByName(String ename) {
-		return repository.findEmployeeByEname(ename);
-	}
-
-	// saving a specific record by using the method save() of CrudRepository
-	public void saveOrUpdate(Employee employee) {
-		repository.save(employee);
-	}
-
-	// updating a record
-	public void update(Employee employee, int eid) {
-		repository.save(employee);
-	}
-
-	// deleting a specific record by using the method deleteById() of CrudRepository
-	public void delete(int id) {
-		repository.deleteById(id);
-	}
+//	// getting a specific record by using the method findById() of CrudRepository
+//	public Employee getEmployeeById(int id) {
+//		// logic
+//		try {
+//			return repository.findById(id).get();
+//		} catch (NoSuchElementException nse) {
+//			LOG.error("Not a valid employee id");
+//
+//			return null;
+//		} catch (Exception ex) {
+//			// LOG.info();
+//			return null;
+//		}
+//	}
+//
+//	public List<Employee> getEmployeeByName(String ename) {
+//		return repository.findEmployeeByEname(ename);
+//	}
+//
+//	// saving a specific record by using the method save() of CrudRepository
+//	public void saveOrUpdate(Employee employee) {
+//		repository.save(employee);
+//	}
+//
+//	// updating a record
+//	public void update(Employee employee, int eid) {
+//		repository.save(employee);
+//	}
+//
+//	// deleting a specific record by using the method deleteById() of CrudRepository
+//	public void delete(int id) {
+//		repository.deleteById(id);
+//	}
 
 }
