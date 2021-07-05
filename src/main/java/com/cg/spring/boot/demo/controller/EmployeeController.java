@@ -34,10 +34,16 @@ public class EmployeeController {
 		return service.findEmployeeById(101);
 	}
 
-	@GetMapping("/getemp/{eid}")
-	public Employee getEmployeeById(@PathVariable("eid") int eid) {
+	@GetMapping("/getemp/{anyStringValue}")
+	public Employee getEmployeeById(@PathVariable("anyStringValue") int eid) {
 		LOG.info("getemp");
 		return service.findEmployeeById(eid);
+	}
+
+	@GetMapping("/getall")
+	public List<Employee> getAllEmps() {
+		LOG.info("getAllEmps");
+		return service.getAllEmployees();
 	}
 
 	/**

@@ -25,17 +25,22 @@ public class EmployeeService {
 		return repository.findById(eid).get();
 	}
 
+	public List<Employee> getAllEmployees() {
+		LOG.info("getAllEmployees");
+		return repository.findAll();
+	}
+
 	/**
 	 * Try the below code only after you are comfortable with basic spring boot
 	 * concepts
 	 */
 
 	// getting all Employee record by using the method findaAll() of CrudRepository
-	public List<Employee> getAllEmployees() {
-		List<Employee> employee = new ArrayList<Employee>();
-		repository.findAll().forEach(employee1 -> employee.add(employee1));
-		return employee;
-	}
+//	public List<Employee> getAllEmployees() {
+//		List<Employee> employee = new ArrayList<Employee>();
+//		repository.findAll().forEach(employee1 -> employee.add(employee1));
+//		return employee;
+//	}
 
 	// getting a specific record by using the method findById() of CrudRepository
 	public Employee getEmployeeById(int id) {
