@@ -34,8 +34,8 @@ public class EmployeeController {
 		return service.findEmployeeById(101);
 	}
 
-	@GetMapping("/getemp/{anyStringValue}")
-	public Employee getEmployeeById(@PathVariable("anyStringValue") int eid) {
+	@GetMapping("/getemp/{eid}")
+	public Employee getEmployeeById(@PathVariable("eid") int eid) {
 		LOG.info("getemp");
 		return service.findEmployeeById(eid);
 	}
@@ -44,6 +44,12 @@ public class EmployeeController {
 	public List<Employee> getAllEmps() {
 		LOG.info("getAllEmps");
 		return service.getAllEmployees();
+	}
+
+	@PostMapping("/addemp")
+	public Employee addEmp(@RequestBody Employee emp) {
+		LOG.info("addEmp");
+		return service.addEmployee(emp);
 	}
 
 	/**

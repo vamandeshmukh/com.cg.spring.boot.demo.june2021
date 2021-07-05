@@ -30,6 +30,11 @@ public class EmployeeService {
 		return repository.findAll();
 	}
 
+	public Employee addEmployee(Employee emp) {
+		LOG.info("addEmployee");
+		return repository.save(emp);
+	}
+
 	/**
 	 * Try the below code only after you are comfortable with basic spring boot
 	 * concepts
