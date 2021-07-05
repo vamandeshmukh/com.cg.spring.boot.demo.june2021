@@ -35,6 +35,11 @@ public class EmployeeService {
 		return repository.save(emp);
 	}
 
+	public Employee updateEmployee(Employee emp) {
+		LOG.info("updateEmployee");
+		return repository.save(emp);
+	}
+
 	/**
 	 * Try the below code only after you are comfortable with basic spring boot
 	 * concepts

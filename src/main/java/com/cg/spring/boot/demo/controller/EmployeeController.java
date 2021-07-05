@@ -52,6 +52,12 @@ public class EmployeeController {
 		return service.addEmployee(emp);
 	}
 
+	@PutMapping("/updateemp")
+	public Employee updateEmp(@RequestBody Employee emp) {
+		LOG.info("addEmp");
+		return service.updateEmployee(emp);
+	}
+
 	/**
 	 * Try the below code only after you are comfortable with basic spring boot
 	 * concepts
