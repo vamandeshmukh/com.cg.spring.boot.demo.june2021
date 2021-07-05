@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,11 +28,16 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeService service;
 
-	@RequestMapping("/emp")
+	@GetMapping("/emp") // endpoint , API
 	public Employee getEmployee() {
 		LOG.info("emp");
-//		return new Employee(101, "Sonu", 10.50);
 		return service.findEmployeeById(101);
+	}
+
+	@GetMapping("/getemp/{eid}")
+	public Employee getEmployeeById(@PathVariable("eid") int eid) {
+		LOG.info("getemp");
+		return service.findEmployeeById(eid);
 	}
 
 	/**
@@ -39,12 +45,12 @@ public class EmployeeController {
 	 * concepts
 	 */
 
-	@RequestMapping("/getemp/{eid}")
-	public Employee getEmployeeById(@PathVariable("eid") int eid) {
-		LOG.info("empemp");
-	
-		return service.findEmployeeById(eid);
-	}
+//	@RequestMapping("/getemp/{eid}")
+//	public Employee getEmployeeById(@PathVariable("eid") int eid) {
+//		LOG.info("empemp");
+//
+//		return service.findEmployeeById(eid);
+//	}
 
 	@GetMapping("/getThisEmp/{eid}")
 	public ResponseEntity<Employee> getThisEmp(@PathVariable("eid") int eid) {
