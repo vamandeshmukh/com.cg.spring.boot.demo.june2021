@@ -25,7 +25,7 @@ public class EmployeeService {
 //		return repository.findById(eid).get();
 //	}
 
-	// method that handles exception 
+	// method that handles exception
 	public Employee findEmployeeById(int eid) {
 		LOG.info("findEmployeeById");
 		try {
