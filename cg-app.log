@@ -647,3 +647,7 @@ Using generated security password: 92df9e09-13ec-4835-8e44-171d1b15fcf5
 2021-07-06 14:44:33.841  INFO 14008 --- [http-nio-8082-exec-9] c.c.s.b.d.controller.EmployeeController  : emp
 2021-07-06 14:44:33.842  INFO 14008 --- [http-nio-8082-exec-9] c.c.s.boot.demo.service.EmployeeService  : findEmployeeById
 2021-07-06 14:44:43.197  INFO 14008 --- [http-nio-8082-exec-5] com.cg.spring.boot.demo.Hello            : welcome
+2021-07-06 14:45:20.693  INFO 14008 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-07-06 14:45:20.706  INFO 14008 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-07-06 14:45:20.809  INFO 14008 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-07-06 14:45:21.050  INFO 14008 --- [restartedMain] com.cg.spring.boot.demo.Application      : Start
