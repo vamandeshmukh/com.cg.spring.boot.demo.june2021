@@ -32,7 +32,8 @@ public class EmployeeService {
 		LOG.info("findEmployeeBySalary");
 //		return repository.findBySalary(salary);
 //		return repository.findBySalaryLessThan(salary);
-		return repository.findBySalaryGreaterThan(salary);
+//		return repository.findBySalaryGreaterThan(salary);
+		return repository.findEmployeeBySalary(salary);
 	}
 
 	public List<Employee> getAllEmployees() {
