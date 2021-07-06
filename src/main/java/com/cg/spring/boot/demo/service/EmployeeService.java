@@ -2,6 +2,7 @@ package com.cg.spring.boot.demo.service;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,11 +41,12 @@ public class EmployeeService {
 	// method that works with custom exception
 	public Employee findEmployeeById(int eid) {
 		LOG.info("findEmployeeById");
-		Employee emp = repository.findById(eid).get();
-		if (emp != null)
-			return emp;
-		else
+		try {
+			return repository.findById(eid).get();
+		} catch (NoSuchElementException nsee) {
+			LOG.error(nsee.getMessage());
 			throw new EmployeeNotFoundException();
+		}
 	}
 
 	public List<Employee> findEmployeeByEname(String ename) {
