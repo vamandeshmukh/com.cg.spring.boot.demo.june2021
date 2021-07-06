@@ -3,7 +3,6 @@ package com.cg.spring.boot.demo.repository;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.cg.spring.boot.demo.model.Employee;
@@ -11,7 +10,6 @@ import com.cg.spring.boot.demo.model.Employee;
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
-	public abstract List<Employee> findEmployeeByEname(String ename);
-
+	public abstract List<Employee> findByEname(String ename);
 
 }

@@ -1,8 +1,6 @@
 package com.cg.spring.boot.demo.service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,8 +19,13 @@ public class EmployeeService {
 	private EmployeeRepository repository;
 
 	public Employee findEmployeeById(int eid) {
-		LOG.info("getEmployeeById");
+		LOG.info("findEmployeeById");
 		return repository.findById(eid).get();
+	}
+
+	public List<Employee> findEmployeeByEname(String ename) {
+		LOG.info("findEmployeeByEname");
+		return repository.findByEname(ename);
 	}
 
 	public List<Employee> getAllEmployees() {
