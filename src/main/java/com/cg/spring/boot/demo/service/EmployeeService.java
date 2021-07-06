@@ -28,6 +28,11 @@ public class EmployeeService {
 		return repository.findByEname(ename);
 	}
 
+	public List<Employee> findEmployeeBySalary(double salary) {
+		LOG.info("findEmployeeBySalary");
+		return repository.findBySalary(salary);
+	}
+
 	public List<Employee> getAllEmployees() {
 		LOG.info("getAllEmployees");
 		return repository.findAll();

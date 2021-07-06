@@ -42,6 +42,12 @@ public class EmployeeController {
 		return service.findEmployeeByEname(ename);
 	}
 
+	@GetMapping("/getempbysal/{salary}")
+	public List<Employee> getEmpBySalary(@PathVariable("salary") double salary) {
+		LOG.info("getEmpBySalary");
+		return service.findEmployeeBySalary(salary);
+	}
+
 	@GetMapping("/getall")
 	public List<Employee> getAllEmps() {
 		LOG.info("getAllEmps");

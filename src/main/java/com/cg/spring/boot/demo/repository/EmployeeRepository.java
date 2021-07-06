@@ -12,4 +12,9 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
 	public abstract List<Employee> findByEname(String ename);
 
+	public abstract List<Employee> findBySalary(double salary);
+
+	public abstract List<Employee> findBySalaryGreaterThan(double salary);
+
+	public abstract List<Employee> findBySalaryLessThan(double salary);
 }
