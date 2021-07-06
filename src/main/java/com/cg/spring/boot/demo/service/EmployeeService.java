@@ -41,12 +41,12 @@ public class EmployeeService {
 	// method that works with custom exception
 	public Employee findEmployeeById(int eid) {
 		LOG.info("findEmployeeById");
-		try {
-			return repository.findById(eid).get();
-		} catch (NoSuchElementException nsee) {
-			LOG.error(nsee.getMessage());
+		Optional<Employee> optEmp = repository.findById(eid);
+		if (optEmp.isEmpty())
 			throw new EmployeeNotFoundException();
-		}
+		else
+			return optEmp.get();
+
 	}
 
 	public List<Employee> findEmployeeByEname(String ename) {
