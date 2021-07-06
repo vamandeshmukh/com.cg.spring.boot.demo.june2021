@@ -97,6 +97,13 @@ public class EmployeeController {
 		return service.updateEmployee(emp);
 	}
 
+	@GetMapping("/updatesal/{newSalary}/{oldSalary}")
+	public String updateSal(@PathVariable("newSalary") double newSalary, @PathVariable("oldSalary") double oldSalary) {
+		LOG.info("updateSal");
+		service.updateSalaryGreatherThan(newSalary, oldSalary);
+		return "Salary updated";
+	}
+
 	@DeleteMapping("deleteemp/{eid}")
 	public int deleteEmp(@PathVariable("eid") int eid) {
 		LOG.info("deleteEmp");

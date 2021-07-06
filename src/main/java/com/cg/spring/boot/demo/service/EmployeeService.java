@@ -77,13 +77,10 @@ public class EmployeeService {
 		return repository.save(emp);
 	}
 
-	// update salary where salary > 10
-	// update spring_emp set salary = salary * 2 where salary > 10;
-	public List<Employee> updateSalaryGreatherThan(double salary) {
-		List<Employee> empList = null;
-//		empList = repository.findBySalaryGreaterThan(salary).stream().map((e) -> {e.setSalary(e.getSalary() * 2);});
+	// update spring_emp set salary = newSalary where salary > oldSalary;
+	public void updateSalaryGreatherThan(double newSalary, double oldSalary) {
 		LOG.info("updateSalaryGreatherThan");
-		return repository.saveAll(empList);
+		repository.updateSalary(newSalary, oldSalary);
 	}
 
 	public int deleteEmployee(int eid) {
