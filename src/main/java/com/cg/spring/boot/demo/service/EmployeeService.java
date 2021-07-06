@@ -1,6 +1,7 @@
 package com.cg.spring.boot.demo.service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,9 +19,21 @@ public class EmployeeService {
 	@Autowired
 	private EmployeeRepository repository;
 
+	// method that returns employee object
+//	public Employee findEmployeeById(int eid) {
+//		LOG.info("findEmployeeById");
+//		return repository.findById(eid).get();
+//	}
+
+	// method that handles exception 
 	public Employee findEmployeeById(int eid) {
 		LOG.info("findEmployeeById");
-		return repository.findById(eid).get();
+		try {
+			return repository.findById(eid).get();
+		} catch (NoSuchElementException nsee) {
+			LOG.error(nsee.getMessage());
+			return null;
+		}
 	}
 
 	public List<Employee> findEmployeeByEname(String ename) {
@@ -49,6 +62,15 @@ public class EmployeeService {
 	public Employee updateEmployee(Employee emp) {
 		LOG.info("updateEmployee");
 		return repository.save(emp);
+	}
+
+	// update salary where salary > 10
+	// update spring_emp set salary = salary * 2 where salary > 10;
+	public List<Employee> updateSalaryGreatherThan(double salary) {
+		List<Employee> empList = null;
+//		empList = repository.findBySalaryGreaterThan(salary).stream().map((e) -> {e.setSalary(e.getSalary() * 2);});
+		LOG.info("updateSalaryGreatherThan");
+		return repository.saveAll(empList);
 	}
 
 	public int deleteEmployee(int eid) {
