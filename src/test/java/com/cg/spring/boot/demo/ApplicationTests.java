@@ -18,19 +18,19 @@ class ApplicationTests {
 	public void testHello() {
 		LOG.info("testHello");
 		Hello obj = new Hello();
-		String expected = "Hello world!";
-		String actual = obj.hello();
-		assertEquals(expected, actual);
+		String s1 = "Hello world!"; // password vaman123
+		String s2 = obj.hello();
+		assertEquals(s2, s1);
+
 	}
 
 	// negative test case
 	@Test
-	public void testHello2() {
+	public void testHelloNegative() {
 		LOG.info("testHello");
 		Hello obj = new Hello();
-		String unexpected = "abcd";
+		String unexpected = "anyOtherValue"; // password suresh123
 		String actual = obj.hello();
 		assertNotEquals(unexpected, actual);
 	}
-
 }
