@@ -21,7 +21,7 @@ public class Hello {
 	// @RequestMapping("/hello") // endpoint, API
 	@GetMapping("/hello")
 	public String hello() {
-		LOG.info("Hello world! INFO");
+		LOG.info("hello");
 		return "Hello world!";
 	}
 }
