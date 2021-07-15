@@ -11,6 +11,8 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+// swagger without JWT 
+
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
@@ -25,6 +27,9 @@ public class SwaggerConfig {
 	}
 
 }
+
+
+// swagger with JWT 
 
 //import java.util.Arrays;
 //import java.util.List;
