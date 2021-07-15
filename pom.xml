@@ -45,8 +45,7 @@
 			<artifactId>hibernate-entitymanager</artifactId>
 		</dependency>
 
-		<!-- -->
-		<!-- -->
+		<!-- 1. Add these three dependencies -->
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

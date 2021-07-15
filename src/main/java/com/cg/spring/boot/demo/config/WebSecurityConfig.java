@@ -44,27 +44,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		return super.authenticationManagerBean();
 	}
 
-//	    @Bean
-//	    CorsConfigurationSource corsConfigurationSource() {
-//	    	CorsConfigurationSource source = new
-//	    			CorsConfigurationSource();
-//	        source.registerCorsConfiguration("/**", new CorsConfiguration().applyPermitDefaultValues());
-//	        return source;
-//	    }
-
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception { // 2
-		httpSecurity.cors();
+//		httpSecurity.cors();
 		log.info("configure");
-		httpSecurity.csrf().disable().authorizeRequests().antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+		httpSecurity.csrf().disable().authorizeRequests()
+				.antMatchers(HttpMethod.GET, "/**", "/v2/api-docs", "/webjars/**", "/swagger-resources/**",
+						"/configuration/**", "/*.html", "/favicon.ico", "/**/*.html", "/**/*.css", "/**/*.js")
+				.permitAll()
 //		.antMatchers("/").permitAll()
-				.antMatchers("/hello").permitAll().antMatchers("/login").permitAll().anyRequest().authenticated().and()
-				.exceptionHandling().and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+				.antMatchers("/hello").permitAll().
+
+				antMatchers("/login").permitAll().
+
+				anyRequest().authenticated().and().exceptionHandling().and().sessionManagement()
+				.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 		httpSecurity.addFilterBefore(userRequestFilter, UsernamePasswordAuthenticationFilter.class);
 	}
 }
-
-//config.setAllowCredentials(true);
-//config.setAllowedOrigins(Collections.singletonList("*"));
-//config.setAllowedHeaders(Arrays.asList("Origin", "Content-Type", "Accept"));
-//config.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));

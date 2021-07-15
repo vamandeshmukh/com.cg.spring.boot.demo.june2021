@@ -25,3 +25,38 @@ public class SwaggerConfig {
 	}
 
 }
+
+
+
+
+//@Configuration
+//@EnableSwagger2
+//public class SwaggerConfig {
+//
+//	private static final Logger LOG = LoggerFactory.getLogger(SwaggerConfig.class);
+//
+//	@Bean
+//	public Docket api() {
+//		LOG.info("Docket api");
+//		return new Docket(DocumentationType.SWAGGER_2).securityContexts(Arrays.asList(securityContext()))
+//				.securitySchemes(Arrays.asList(apiKey())).select().apis(RequestHandlerSelectors.any())
+//				.paths(PathSelectors.any()).build();
+//	}
+//
+//	private SecurityContext securityContext() {
+//		return SecurityContext.builder().securityReferences(defaultAuth()).build();
+//	}
+//
+//	private List<SecurityReference> defaultAuth() {
+//		AuthorizationScope authorizationScope = new AuthorizationScope("global", "accessEverything");
+//		AuthorizationScope[] authorizationScopes = new AuthorizationScope[1];
+//		authorizationScopes[0] = authorizationScope;
+//		return Arrays.asList(new SecurityReference("JWT", authorizationScopes));
+//	}
+//
+//	private ApiKey apiKey() {
+//		LOG.info("apiKey");
+//		return new ApiKey("JWT", "Authorization", "header");
+//	}
+//
+//}
