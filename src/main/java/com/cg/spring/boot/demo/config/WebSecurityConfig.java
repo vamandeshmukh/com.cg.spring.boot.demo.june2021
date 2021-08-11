@@ -46,20 +46,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity httpSecurity) throws Exception { // 2
-//		httpSecurity.cors();
 		log.info("configure");
 		httpSecurity.csrf().disable().authorizeRequests()
 				.antMatchers("/v2/api-docs", "/webjars/**", "/swagger-resources/**",
 						"/configuration/**", "/*.html", "/favicon.ico", "/**/*.html", "/**/*.css", "/**/*.js")
 				.permitAll()
-//		.antMatchers("/").permitAll()
 				.antMatchers("/hello").permitAll().
-
 				antMatchers("/login").permitAll().
-
 				anyRequest().authenticated().and().exceptionHandling().and().sessionManagement()
 				.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 		httpSecurity.addFilterBefore(userRequestFilter, UsernamePasswordAuthenticationFilter.class);
+		// add httpSecurity.cors(); to prevent CORS error in ReactJS app 
 		httpSecurity.cors();
 	}
 }
